@@ -1,0 +1,74 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+
+const GooglePayScreen = ({ route }) => {
+  const fare = 100;
+
+  const handlePayment = () => {
+    // Include the fare amount as a query parameter in the URL
+    const paymentLink = `https://buy.stripe.com/5kAbKpdy25re412288?customUnitAmount=${fare}`;
+
+    // Open the payment link in the default browser
+    Linking.openURL(paymentLink).catch(() => {
+      // Handle errors if the link cannot be opened
+      console.error('Failed to open the payment link');
+    });
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image source={require('../../assets/googlepayQR.png')} style={styles.qrCode} />
+      <Text style={styles.title}>Google Pay</Text>
+      <Text style={styles.upiId}>Your UPI ID: your-upi-id@example.com</Text>
+      <Text style={styles.fareAmount}>Fare Amount: ${fare}</Text>
+      <TouchableOpacity style={styles.payButton} onPress={handlePayment}>
+        <Text style={styles.payButtonText}>Pay Now</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f4f4f4', // Background color
+    padding: 20,
+  },
+  qrCode: {
+    width: 200,
+    height: 300,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#333', // Text color
+  },
+  upiId: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#333', // Text color
+  },
+  fareAmount: {
+    fontSize: 16,
+    marginBottom: 20,
+    color: 'green', // Text color
+  },
+  payButton: {
+    backgroundColor: '#007bff', // Button background color
+    borderRadius: 10,
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+  },
+  payButtonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white', // Button text color
+  },
+});
+
+export default GooglePayScreen;
