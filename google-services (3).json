@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "794607040777",
-    "project_id": "ridehub-64a08",
-    "storage_bucket": "ridehub-64a08.appspot.com"
+    "project_number": "",
+    "project_id": "",
+    "storage_bucket": ""
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:794607040777:android:e6a3a61ff1d9409f613bd8",
+        "mobilesdk_app_id": ",
         "android_client_info": {
-          "package_name": "com.stellar.ridehub"
+          "package_name": ""
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD_uqFUTnC3umFr8nmhhaDwQ38QiUQAYho"
+          "current_key": ""
         }
       ],
       "services": {
